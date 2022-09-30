@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output, SimpleChanges } from '@angular/core';
-import { Empleado } from '../entidades/empleado/empleado.model';
+import { Empleado } from '../entidades/empleado.model';
 import { EmpleadosServiceService } from '../servicios/empleados-service.service';
 
 @Component({

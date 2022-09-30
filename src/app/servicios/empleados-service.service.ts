@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Empleado } from '../entidades/empleado/empleado.model';
+import { Empleado } from '../entidades/empleado.model';
 import { ConexionDbService } from './conexiondb.service';
 
 @Injectable({

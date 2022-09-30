@@ -23,9 +23,9 @@
                     <label class="form-label" for="departamento">Departamento</label>
                     <select class="form-select" name="departamento" aria-label="Default select example" ngModel>
                         <option value="" selected>Elija un departamento...</option>
-                        <option value="Informática">Informática</option>
-                        <option value="Seguridad">Seguridad</option>
-                        <option value="Financiero">Financiero</option>
+                        <option *ngFor="let depto of departamentos" value="{{depto.nombre}}">{{depto.nombre}}</option>
+                        <!-- <option value="Seguridad">Seguridad</option>
+                        <option value="Financiero">Financiero</option> -->
                     </select>
                 </div>
                 <div class="form-check mt-3">

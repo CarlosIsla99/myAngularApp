@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Empleado } from '../entidades/empleado/empleado.model';
+import { Empleado } from '../entidades/empleado.model';
 
 @Injectable({
   providedIn: 'root'
@@ -25,6 +25,10 @@ export class ConexionDbService {
   borrarEmpleado(indice:number){
     let url = 'http://localhost:3000/empleados/'+ indice;
     this.HttpClient.delete(url).subscribe(res=>res);
+  }
+
+  cargarDepartamentos() {
+    return this.HttpClient.get('http://localhost:3000/departamentos/');
   }
 
 }

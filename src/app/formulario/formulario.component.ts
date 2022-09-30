@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Empleado } from '../entidades/empleado/empleado.model';
+import { Departamento } from '../entidades/depto.model';
+import { Empleado } from '../entidades/empleado.model';
+import { ConexionDbService } from '../servicios/conexiondb.service';
 import { EmpleadosServiceService } from '../servicios/empleados-service.service';
 
 @Component({
@@ -9,15 +11,20 @@ import { EmpleadosServiceService } from '../servicios/empleados-service.service'
 })
 export class FormularioComponent implements OnInit {
 
-  constructor(private lista:EmpleadosServiceService) { }
+  constructor(private lista:EmpleadosServiceService, private depto:ConexionDbService) { }
 
   ngOnInit(): void {
     this.lista.cargarEmpleados().subscribe(misEmpleados=>{
       this.empleados = Object.values(misEmpleados);
     });
+
+    this.depto.cargarDepartamentos().subscribe(misEmpleados=>{
+      this.departamentos = Object.values(misEmpleados);
+    });
   }
 
   empleados!:Empleado[];
+  departamentos!:Departamento[];
 
   enviarForm(data:Empleado) {
     this.lista.insertarEmpleados(data);
