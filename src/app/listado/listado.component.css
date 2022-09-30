@@ -1,0 +1,19 @@
+@media screen and (max-width: 670px) {
+    table {
+        width:100%;
+    }
+    thead {
+        display: none;
+    }
+    tbody td {
+        display: block;
+        text-align:center;
+    }
+}
+
+/* @media screen and (max-width: 768px) and (min-width: 576px) {
+    table {
+      display: block;
+      overflow-x: auto;
+    }
+} */

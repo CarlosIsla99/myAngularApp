@@ -1,0 +1,44 @@
+<div class="d-flex flex-row">
+    <div class="col-12 col-xl-5">
+        <form (ngSubmit)="enviarForm(empleadoForm.value)" #empleadoForm="ngForm">
+            <div class="d-flex flex-column align-items-center my-5">
+                <h3 for="empleado">Formulario empleados</h3>
+                <div class="col-8">
+                    <label class="form-label" for="nombre">Nombre</label>
+                    <input class="form-control" type="text" name="nombre" id="nombreEmpleado" placeholder="Nombre" ngModel>
+                </div>
+                <div class="col-8 mt-3">
+                    <label class="form-label" for="apellidos">Apellidos</label>
+                    <input class="form-control" type="text" name="apellidos" id="apellidosEmpleado" placeholder="Apellidos" ngModel>
+                </div>
+                <div class="col-8 mt-3">
+                    <label class="form-label" for="email">Email</label>
+                    <input class="form-control" type="email" name="email" id="emailEmpleado" placeholder="Email" ngModel>
+                </div>
+                <div class="col-8 mt-3">
+                    <label class="form-label" for="tfno">Tfno. móvil</label>
+                    <input class="form-control" type="tel" name="tfno" id="tfnoEmpleado" placeholder="Teléfono" ngModel>
+                </div>
+                <div class="col-8 mt-3">
+                    <label class="form-label" for="departamento">Departamento</label>
+                    <select class="form-select" name="departamento" aria-label="Default select example" ngModel>
+                        <option value="" selected>Elija un departamento...</option>
+                        <option value="Informática">Informática</option>
+                        <option value="Seguridad">Seguridad</option>
+                        <option value="Financiero">Financiero</option>
+                    </select>
+                </div>
+                <div class="form-check mt-3">
+                    <input class="form-check-input" name="condiciones" type="checkbox" value="true" id="condiciones" ngModel>
+                    <label class="form-check-label" for="condiciones">Acepto las condicines y políticas de la empresa</label>
+                </div>
+                <div class="col mt-4">
+                    <button class="btn btn-primary" type="submit">Enviar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="col-12 col-xl-7">
+        <app-listado (eliminarE)="eliminarEmpleado($event)" (actualizarE)="modificarEmpleado($event)" [empleados]="empleados"></app-listado>
+    </div>
+</div>

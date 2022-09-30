@@ -1,0 +1,49 @@
+{
+  "empleados": [
+    {
+      "id": 1,
+      "nombre": "Jose",
+      "apellidos": "Antonio Gutierrez",
+      "email": "jose_antonio@gmail.com",
+      "tfno": "683644456",
+      "departamento": "Seguridad",
+      "condiciones": false
+    },
+    {
+      "id": 2,
+      "nombre": "Carlos",
+      "apellidos": "Isla Marañon",
+      "email": "isla.carlos.99@gmail.com",
+      "tfno": "678374456",
+      "departamento": "Informática",
+      "condiciones": false
+    },
+    {
+      "nombre": "Pablo",
+      "apellidos": "Motos Fernandez",
+      "email": "pablo.motos@gmail.com",
+      "tfno": "674598748",
+      "departamento": "Informática",
+      "condiciones": true,
+      "id": 3
+    },
+    {
+      "nombre": "Ana Maria",
+      "apellidos": "Marañon Sedano",
+      "email": "anamaria@gmail.com",
+      "tfno": "987654321",
+      "departamento": "Financiero",
+      "condiciones": true,
+      "id": 4
+    },
+    {
+      "id": 5,
+      "nombre": "CARELETE",
+      "apellidos": "PRUEBS",
+      "email": "PRUEBA@gmail.com",
+      "tfno": "192837465",
+      "departamento": "Financiero",
+      "condiciones": false
+    }
+  ]
+}

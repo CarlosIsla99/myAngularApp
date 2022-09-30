@@ -1,0 +1,74 @@
+<div style="margin-right: 5rem;" class="mt-5">
+    <table class="table text-center">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>NOMBRE</th>
+                <th>APELLIDOS</th>
+                <th>EMAIL</th>
+                <th>TFNO.</th>
+                <th>DEPTO.</th>
+                <th>TyC</th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let empleado of empleados">
+
+            <tr [ngClass]="{'bg-info text-white':seleccionado == empleado.id}">
+
+                <div *ngIf="empleadoModSelec != empleado.id; then view else edit"></div>
+
+                <ng-template #view>
+                    <td><b><button class="btn btn-secondary" (click)="seleccionar(empleado)">{{empleado.id}}</button></b></td>
+                    <td>{{empleado.nombre}}</td>
+                    <td>{{empleado.apellidos}}</td>
+                    <td>{{empleado.email}}</td>
+                    <td>{{empleado.tfno}}</td>
+                    <td>{{empleado.departamento}}</td>
+                    
+                    <div *ngIf="this.empleado.condiciones === true; then accepted else refused"></div>
+                    <ng-template #accepted><td><i class="fa-solid fa-check fa-xl"></i></td></ng-template>
+                    <ng-template #refused><td><i class="fa-solid fa-xmark fa-xl"></i></td></ng-template>
+                </ng-template>
+
+                <ng-template #edit>
+                    <td><input class="form-control text-center" type="text" name="id" disabled [(ngModel)]="inputId"></td>
+                    <td><input class="form-control text-center" type="text" name="nombre" [(ngModel)]="inputNombre"></td>
+                    <td><input class="form-control text-center" type="text" name="apellidos" [(ngModel)]="inputApellido"></td>
+                    <td><input class="form-control text-center" type="email" name="email" [(ngModel)]="inputEmail"></td>
+                    <td><input class="form-control text-center" type="tel" name="tfno" [(ngModel)]="inputTfno"></td>
+
+                    <td>
+                        <select class="form-select" name="departamento" [(ngModel)]="inputDepto">
+                            <option value="" selected>Elija un departamento...</option>
+                            <option value="Informática">Informática</option>
+                            <option value="Seguridad">Seguridad</option>
+                            <option value="Financiero">Financiero</option>
+                        </select>
+                    </td>
+                    
+                    <div *ngIf="this.empleado.condiciones === true; then accepted else refused"></div>
+                    <ng-template #accepted><td><input class="form-check-input" name="condiciones" type="checkbox" value="true" id="condiciones" checked [(ngModel)]="inputTyc"></td></ng-template>
+                    <ng-template #refused><td><input class="form-check-input" name="condiciones" type="checkbox" value="true" id="condiciones" [(ngModel)]="inputTyc"></td></ng-template>
+                </ng-template>
+
+            </tr>
+            <tr>
+                <td class="border-bottom-0" colspan="7">
+                    <!-- <app-operaciones (actualizarEvent)="onActualizar($event)" [empeladoSelec]="empleado" [selected]="seleccionado"></app-operaciones> -->
+                    <div *ngIf="seleccionado == empleado.id" class="d-flex text-center flex-row justify-content-center">
+                        <div *ngIf="activarEnviar; then enviar else actualizar" class="d-flex text-center flex-row"></div>
+                        <ng-template #actualizar>
+                            <div class="col-auto"><button class="btn btn-primary text-white" (click)="activarInputs(seleccionado)">Actualizar</button></div>
+                            <div class="col-auto mx-2"><button class="btn btn-danger" (click)="eliminarEmpleado(seleccionado)">Eliminar</button></div>
+                        </ng-template>
+                        <ng-template #enviar>
+                            <div class="col-auto"><button class="btn btn-info text-white mx-2" (click)="actualizarEmpleado(seleccionado)">Enviar</button></div>
+                            <div class="col-auto"><button class="btn btn-warning text-white" (click)="desactivasrInputs()">Cancelar</button></div>
+                        </ng-template>  
+                    </div>
+
+                </td>
+            </tr>       
+        </tbody>
+    </table>
+</div>
