@@ -15,11 +15,12 @@ export class ListadoComponent implements OnInit {
   }
 
   @Input()empleados!:Empleado[];
-  empleadoMod!:Empleado;
 
+  empleadoMod!:Empleado;
   seleccionado!:number;
   empleadoModSelec!:number;
   activarEnviar!:boolean;
+  buscar!:string;
 
   inputId!:number;
   inputNombre!:string;
@@ -34,23 +35,6 @@ export class ListadoComponent implements OnInit {
 
   eliminarEmpleado(indice:number) {
     this.eliminarE.emit(indice);
-  }
-
-  actualizarEmpleado(id:number) {
-    let empleadoCambiado = new Empleado(id, this.inputNombre, this.inputApellido, this.inputEmail, this.inputTfno, this.inputDepto, this.inputTyc);
-    console.log(empleadoCambiado);
-    this.actualizarE.emit({id, empleadoCambiado});
-    this.desactivasrInputs();
-  }
-
-  seleccionar(empleado:Empleado){
-    this.empleadoModSelec = -1;
-    this.desactivasrInputs();
-    if(this.seleccionado == empleado.id){
-      this.seleccionado = -1;
-    } else {
-      this.seleccionado = empleado.id;
-    }
   }
 
   activarInputs(selec: number) {
@@ -72,10 +56,26 @@ export class ListadoComponent implements OnInit {
     this.inputTyc = this.empleadoMod.condiciones;
   }
 
+  actualizarEmpleado(id:number) {
+    let empleadoCambiado = new Empleado(id, this.inputNombre, this.inputApellido, this.inputEmail, this.inputTfno, this.inputDepto, this.inputTyc);
+    console.log(empleadoCambiado);
+    this.actualizarE.emit({id, empleadoCambiado});
+    this.desactivasrInputs();
+  }
+
+  seleccionar(empleado:Empleado){
+    this.empleadoModSelec = -1;
+    this.desactivasrInputs();
+    if(this.seleccionado == empleado.id){
+      this.seleccionado = -1;
+    } else {
+      this.seleccionado = empleado.id;
+    }
+  }
+
   desactivasrInputs() {
     this.empleadoModSelec = -1;
     this.activarEnviar = false;
   }
   
-
 }

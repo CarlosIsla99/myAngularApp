@@ -35,15 +35,6 @@
       "departamento": "Financiero",
       "condiciones": true,
       "id": 4
-    },
-    {
-      "id": 5,
-      "nombre": "CARELETE",
-      "apellidos": "PRUEBS",
-      "email": "PRUEBA@gmail.com",
-      "tfno": "192837465",
-      "departamento": "Financiero",
-      "condiciones": false
     }
   ],
   "departamentos": [

@@ -1,4 +1,7 @@
-<div style="margin-right: 5rem;" class="mt-5">
+<div class="d-flex flex-column m-5">
+    <div class="col-12 col-md-4 align-self-end my-3">
+        <input class="form-control" type="text" name="buscador" id="buscadorE" placeholder="Buscar por nombre..." [(ngModel)]="buscar">
+    </div>
     <table class="table text-center">
         <thead>
             <tr>
@@ -11,7 +14,7 @@
                 <th>TyC</th>
             </tr>
         </thead>
-        <tbody *ngFor="let empleado of empleados">
+        <tbody *ngFor="let empleado of empleados | buscar:buscar">
 
             <tr [ngClass]="{'bg-info text-white':seleccionado == empleado.id}">
 
