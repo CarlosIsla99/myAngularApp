@@ -1,4 +1,4 @@
-<div class="d-flex flex-column m-5">
+<div class="d-flex flex-column mx-4 mt-4">
     <div class="col-12 col-md-4 align-self-end my-3">
         <input class="form-control" type="text" name="buscador" id="buscadorE" placeholder="Buscar por nombre..." [(ngModel)]="buscar">
     </div>
@@ -43,9 +43,7 @@
                     <td>
                         <select class="form-select" name="departamento" [(ngModel)]="inputDepto">
                             <option value="" selected>Elija un departamento...</option>
-                            <option value="Informática">Informática</option>
-                            <option value="Seguridad">Seguridad</option>
-                            <option value="Financiero">Financiero</option>
+                            <option *ngFor="let depto of departamentos" value="{{depto.nombre}}">{{depto.nombre}}</option>
                         </select>
                     </td>
                     

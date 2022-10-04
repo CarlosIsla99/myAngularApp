@@ -1,5 +1,5 @@
 <div class="d-flex row">
-    <div class="col-12 col-xl-5">
+    <div class="col-12 col-xxl-5">
         <form (ngSubmit)="enviarForm(empleadoForm.value)" #empleadoForm="ngForm">
             <div class="d-flex flex-column align-items-center my-5">
                 <h3 for="empleado">Formulario empleados</h3>
@@ -24,8 +24,6 @@
                     <select class="form-select" name="departamento" aria-label="Default select example" ngModel>
                         <option value="" selected>Elija un departamento...</option>
                         <option *ngFor="let depto of departamentos" value="{{depto.nombre}}">{{depto.nombre}}</option>
-                        <!-- <option value="Seguridad">Seguridad</option>
-                        <option value="Financiero">Financiero</option> -->
                     </select>
                 </div>
                 <div class="form-check mt-3">
@@ -38,7 +36,7 @@
             </div>
         </form>
     </div>
-    <div class="col-12 col-xl-7">
+    <div class="col-12 col-xxl-7">
         <app-listado (eliminarE)="eliminarEmpleado($event)" (actualizarE)="modificarEmpleado($event)" [empleados]="empleados"></app-listado>
     </div>
 </div>

@@ -35,6 +35,51 @@
       "departamento": "Financiero",
       "condiciones": true,
       "id": 4
+    },
+    {
+      "nombre": "Carlete",
+      "apellidos": "sdsd",
+      "email": "carlos@isla.com",
+      "tfno": "987654321",
+      "departamento": "IT",
+      "condiciones": true,
+      "id": 5
+    },
+    {
+      "nombre": "Carlete",
+      "apellidos": "sdsd",
+      "email": "carlos@isla.com",
+      "tfno": "987654321",
+      "departamento": "IT",
+      "condiciones": true,
+      "id": 11
+    },
+    {
+      "nombre": "Ana ",
+      "apellidos": "Isla ",
+      "email": "anamaria@gmail.com",
+      "tfno": "987654321",
+      "departamento": "IT",
+      "condiciones": true,
+      "id": 13
+    },
+    {
+      "nombre": "Carlete",
+      "apellidos": "ejmplos",
+      "email": "anamaria@gmail.com",
+      "tfno": "987654321",
+      "departamento": "Logística",
+      "condiciones": false,
+      "id": 14
+    },
+    {
+      "nombre": "Pablo",
+      "apellidos": "Isla Marañon",
+      "email": "admin@gmail.com",
+      "tfno": "987654321",
+      "departamento": "RRHH",
+      "condiciones": "",
+      "id": 15
     }
   ],
   "departamentos": [

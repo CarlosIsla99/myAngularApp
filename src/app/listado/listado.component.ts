@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output, SimpleChanges } from '@angular/core';
+import { Departamento } from '../entidades/depto.model';
 import { Empleado } from '../entidades/empleado.model';
-import { EmpleadosServiceService } from '../servicios/empleados-service.service';
+import { ConexionDbService } from '../servicios/conexiondb.service';
 
 @Component({
   selector: 'app-listado',
@@ -9,10 +10,15 @@ import { EmpleadosServiceService } from '../servicios/empleados-service.service'
 })
 export class ListadoComponent implements OnInit {
 
-  constructor(private lista:EmpleadosServiceService ) { }
+  constructor(private depto:ConexionDbService ) { }
 
   ngOnInit(): void {
+    this.depto.cargarDepartamentos().subscribe(misEmpleados=>{
+      this.departamentos = Object.values(misEmpleados);
+    });
   }
+
+  departamentos!:Departamento[];
 
   @Input()empleados!:Empleado[];
 
@@ -77,5 +83,5 @@ export class ListadoComponent implements OnInit {
     this.empleadoModSelec = -1;
     this.activarEnviar = false;
   }
-  
+
 }

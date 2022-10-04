@@ -13,6 +13,7 @@ import { ConexionDbService } from './servicios/conexiondb.service';
 import { EmpleadosServiceService } from './servicios/empleados-service.service';
 import { FilterPipe } from './pipes/filter.pipe';
 import { LinkComponent } from './link/link.component';
+import { OrderByPipe } from './pipes/order-by.pipe';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { LinkComponent } from './link/link.component';
     FormularioComponent,
     ListadoComponent,
     LinkComponent,
-    FilterPipe  
+    FilterPipe,
+    OrderByPipe  
   ],
   imports: [
     BrowserModule,
