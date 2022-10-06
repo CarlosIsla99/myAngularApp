@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output, SimpleChanges } from '@angular/core';
+import { Validators } from '@angular/forms';
 import { Departamento } from '../entidades/depto.model';
 import { Empleado } from '../entidades/empleado.model';
 import { ConexionDbService } from '../servicios/conexiondb.service';
@@ -27,6 +28,7 @@ export class ListadoComponent implements OnInit {
   empleadoModSelec!:number;
   activarEnviar!:boolean;
   buscar!:string;
+  orden!:string;
 
   inputId!:number;
   inputNombre!:string;
@@ -82,6 +84,10 @@ export class ListadoComponent implements OnInit {
   desactivasrInputs() {
     this.empleadoModSelec = -1;
     this.activarEnviar = false;
+  }
+
+  ordenarPor(valor:string) {
+    this.orden = valor;
   }
 
 }

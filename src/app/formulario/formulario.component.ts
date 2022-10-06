@@ -42,7 +42,6 @@ export class FormularioComponent implements OnInit {
   }
 
   modificarEmpleado(data:any) {
-    console.log(data);
     this.lista.modificarEmpleado(data.empleadoCambiado.id, data.empleadoCambiado)
     
     for(let i=0; i<this.empleados.length; i++) {

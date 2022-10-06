@@ -1,6 +1,20 @@
-<div class="d-flex flex-column mx-4 mt-4">
-    <div class="col-12 col-md-4 align-self-end my-3">
-        <input class="form-control" type="text" name="buscador" id="buscadorE" placeholder="Buscar por nombre..." [(ngModel)]="buscar">
+<div class="d-flex flex-column text-center m-5">
+    <h3>Lista de empleados</h3>
+    <div class="d-flex flex-column flex-md-row justify-content-md-between my-3">
+        <div class="d-flex flex-column col-12 col-md-auto">
+            <div>
+                <label for="filtros">Ordenar por:</label>
+            </div>
+            <div>
+                <button class="btn btn-primary mt-1" (click)="ordenarPor('nombre')">Nombre</button>
+                <button class="btn btn-primary mt-1 ms-1" (click)="ordenarPor('departamento')">Departamento</button>
+                <button class="btn btn-primary mt-1 mx-1" (click)="ordenarPor('condiciones')">Tyc</button>
+                <button class="btn btn-secondary  mt-1" (click)="ordenarPor(''); buscar=''">Limpiar filtros</button>
+            </div>
+        </div>
+        <div class="d-flex align-items-end col-12 col-md-4 mt-2">
+            <input class="form-control border border-secondary" type="text" name="buscador" id="buscadorE" placeholder="Buscar por nombre" [(ngModel)]="buscar">
+        </div>
     </div>
     <table class="table text-center">
         <thead>
@@ -14,9 +28,9 @@
                 <th>TyC</th>
             </tr>
         </thead>
-        <tbody *ngFor="let empleado of empleados | buscar:buscar">
+        <tbody *ngFor="let empleado of (empleados | buscar:buscar) | orderBy:orden">
 
-            <tr [ngClass]="{'bg-info text-white':seleccionado == empleado.id}">
+            <tr [ngClass]="{'bg-info fw-bold':seleccionado == empleado.id}">
 
                 <div *ngIf="empleadoModSelec != empleado.id; then view else edit"></div>
 
@@ -34,7 +48,7 @@
                 </ng-template>
 
                 <ng-template #edit>
-                    <td><input class="form-control text-center" type="text" name="id" disabled [(ngModel)]="inputId"></td>
+                    <td style="width: 3rem;"><input class="form-control text-center" type="text" name="id" disabled [(ngModel)]="inputId"></td>
                     <td><input class="form-control text-center" type="text" name="nombre" [(ngModel)]="inputNombre"></td>
                     <td><input class="form-control text-center" type="text" name="apellidos" [(ngModel)]="inputApellido"></td>
                     <td><input class="form-control text-center" type="email" name="email" [(ngModel)]="inputEmail"></td>
@@ -48,14 +62,13 @@
                     </td>
                     
                     <div *ngIf="this.empleado.condiciones === true; then accepted else refused"></div>
-                    <ng-template #accepted><td><input class="form-check-input" name="condiciones" type="checkbox" value="true" id="condiciones" checked [(ngModel)]="inputTyc"></td></ng-template>
-                    <ng-template #refused><td><input class="form-check-input" name="condiciones" type="checkbox" value="true" id="condiciones" [(ngModel)]="inputTyc"></td></ng-template>
+                    <ng-template #accepted><td class="align-middle"><input class="form-check-input" name="condiciones" type="checkbox" value="true" id="condiciones" checked [(ngModel)]="inputTyc"></td></ng-template>
+                    <ng-template #refused><td class="align-middle"><input class="form-check-input" name="condiciones" type="checkbox" value="true" id="condiciones" [(ngModel)]="inputTyc"></td></ng-template>
                 </ng-template>
 
             </tr>
             <tr>
                 <td class="border-bottom-0" colspan="7">
-                    <!-- <app-operaciones (actualizarEvent)="onActualizar($event)" [empeladoSelec]="empleado" [selected]="seleccionado"></app-operaciones> -->
                     <div *ngIf="seleccionado == empleado.id" class="d-flex text-center flex-row justify-content-center">
                         <div *ngIf="activarEnviar; then enviar else actualizar" class="d-flex text-center flex-row"></div>
                         <ng-template #actualizar>
@@ -63,7 +76,7 @@
                             <div class="col-auto mx-2"><button class="btn btn-danger" (click)="eliminarEmpleado(seleccionado)">Eliminar</button></div>
                         </ng-template>
                         <ng-template #enviar>
-                            <div class="col-auto"><button class="btn btn-info text-white mx-2" (click)="actualizarEmpleado(seleccionado)">Enviar</button></div>
+                            <div class="col-auto"><button class="btn btn-success text-white mx-2" (click)="actualizarEmpleado(seleccionado)">Enviar</button></div>
                             <div class="col-auto"><button class="btn btn-warning text-white" (click)="desactivasrInputs()">Cancelar</button></div>
                         </ng-template>  
                     </div>

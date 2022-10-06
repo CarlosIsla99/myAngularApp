@@ -6,7 +6,7 @@
       "apellidos": "Antonio Gutierrez",
       "email": "jose_antonio@gmail.com",
       "tfno": "683644456",
-      "departamento": "Seguridad",
+      "departamento": "Marketing",
       "condiciones": false
     },
     {
@@ -15,26 +15,26 @@
       "apellidos": "Isla Marañon",
       "email": "isla.carlos.99@gmail.com",
       "tfno": "678374456",
-      "departamento": "Informática",
+      "departamento": "IT",
       "condiciones": false
     },
     {
+      "id": 3,
       "nombre": "Pablo",
       "apellidos": "Motos Fernandez",
       "email": "pablo.motos@gmail.com",
       "tfno": "674598748",
-      "departamento": "Informática",
-      "condiciones": true,
-      "id": 3
+      "departamento": "IT",
+      "condiciones": true
     },
     {
+      "id": 4,
       "nombre": "Ana Maria",
       "apellidos": "Marañon Sedano",
       "email": "anamaria@gmail.com",
       "tfno": "987654321",
-      "departamento": "Financiero",
-      "condiciones": true,
-      "id": 4
+      "departamento": "Finanzas",
+      "condiciones": true
     },
     {
       "nombre": "Carlete",
@@ -55,22 +55,22 @@
       "id": 11
     },
     {
+      "id": 13,
       "nombre": "Ana ",
       "apellidos": "Isla ",
       "email": "anamaria@gmail.com",
       "tfno": "987654321",
-      "departamento": "IT",
-      "condiciones": true,
-      "id": 13
+      "departamento": "Administrativo",
+      "condiciones": true
     },
     {
+      "id": 14,
       "nombre": "Carlete",
       "apellidos": "ejmplos",
       "email": "anamaria@gmail.com",
       "tfno": "987654321",
       "departamento": "Logística",
-      "condiciones": false,
-      "id": 14
+      "condiciones": false
     },
     {
       "nombre": "Pablo",
