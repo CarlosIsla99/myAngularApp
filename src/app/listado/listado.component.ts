@@ -28,7 +28,8 @@ export class ListadoComponent implements OnInit {
   empleadoModSelec!:number;
   activarEnviar!:boolean;
   buscar!:string;
-  orden!:string;
+  campo!:string;
+  orden!:boolean;
 
   inputId!:number;
   inputNombre!:string;
@@ -87,7 +88,10 @@ export class ListadoComponent implements OnInit {
   }
 
   ordenarPor(valor:string) {
-    this.orden = valor;
-  }
+    if(this.campo === valor) {
+      this.orden = false;
+    }
+    this.campo = valor;
+  }   
 
 }
