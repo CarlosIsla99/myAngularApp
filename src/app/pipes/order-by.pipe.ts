@@ -7,9 +7,8 @@ import { orderBy } from 'lodash';
 export class OrderByPipe implements PipeTransform {
 
   transform(array: any, sortBy: string, order?: boolean): any[] {
-    const sortOrder = order ? order : false;
+    const sortOrder = order ? order : 'asc'; 
    
      return orderBy(array, [sortBy], [sortOrder]);
      }
-
 }

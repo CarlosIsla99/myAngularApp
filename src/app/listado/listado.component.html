@@ -28,7 +28,7 @@
                 <th>TyC</th>
             </tr>
         </thead>
-        <tbody *ngFor="let empleado of (empleados | buscar:buscar) | orderBy:orden">
+        <tbody *ngFor="let empleado of (empleados | buscar:buscar) | orderBy: campo: orden">
 
             <tr [ngClass]="{'bg-info fw-bold':seleccionado == empleado.id}">
 
